@@ -1,0 +1,28 @@
+{
+  "name": "vector-2d",
+  "version": "0.0.0",
+  "description": "A grab bag of vector utility functions for 2D and 3D vectors that operate on plain arrays",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run readme",
+    "readme": "sourcecat | emu > README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/vectors.git"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "emu": "0.0.2",
+    "sourcecat": "~0.1.0"
+  },
+  "readmeFilename": "README.md",
+  "keywords": [
+    "vectors",
+    "math",
+    "utility",
+    "browserify"
+  ]
+}
