@@ -1,5 +1,5 @@
 {
-  "name": "vector-2d",
+  "name": "vectors",
   "version": "0.0.0",
   "description": "A grab bag of vector utility functions for 2D and 3D vectors that operate on plain arrays",
   "main": "index.js",
