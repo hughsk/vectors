@@ -16,13 +16,13 @@ npm install vectors
 
 ## Usage
 
-Each method is requireable from `vectors/${dims}d/${method}`,
+Each method is requireable from `vectors/${method}`,
 e.g.:
 
 ``` javascript
-var mag2d = require('vectors/2d/mag')
-var add2d = require('vectors/2d/add')
-var copy2d = require('vectors/2d/copy')
+var mag = require('vectors/mag')
+var add = require('vectors/add')
+var copy = require('vectors/copy')
 ```
 
 Each method takes a `vec` vector, which if returning a new
@@ -31,17 +31,28 @@ vector will almost always do so by modifying it directly:
 ``` javascript
 var spd = [+1, 0]
 var acc = [-1, 0]
-var cop = copy2d(spd)
+var cop = copy(spd)
 
-mag2d(spd)      // 1
-add2d(spd, acc) // spd === [0, 0]
-mag2d(spd)      // 0
-mag2d(cop)      // 1
+mag(spd)      // 1
+add(spd, acc) // spd === [0, 0]
+mag(spd)      // 0
+mag(cop)      // 1
 ```
 
 **/
 
 module.exports = {
-  vec2: require('./2d'),
-  vec3: require('./3d')
+    add: require('./add')
+  , sub: require('./sub')
+  , mag: require('./mag')
+  , div: require('./div')
+  , dot: require('./dot')
+  , mult: require('./mult')
+  , dist: require('./dist')
+  , lerp: require('./lerp')
+  , copy: require('./copy')
+  , cross: require('./cross')
+  , limit: require('./limit')
+  , heading: require('./heading')
+  , normalize: require('./normalize')
 }

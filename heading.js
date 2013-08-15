@@ -5,7 +5,7 @@
 Mutliplies the vector `vec` by a `scalar` value:
 
 ``` javascript
-var heading = require('vectors/2d/heading')
+var heading = require('vectors/heading')
 var a = [5, 0]
 var b = [0, 5]
 
