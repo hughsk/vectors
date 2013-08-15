@@ -13,10 +13,14 @@
   },
   "author": "Hugh Kennedy <hughskennedy@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "emu": "0.0.2",
-    "sourcecat": "~0.1.0"
+    "sourcecat": "~0.1.0",
+    "tape": "~1.0.4"
   },
   "readmeFilename": "README.md",
   "keywords": [
