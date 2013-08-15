@@ -5,7 +5,7 @@
 Returns the dot product of vectors `vec` and `other`:
 
 ``` javascript
-var dot = require('vectors/dot')
+var dot = require('vectors/dot')(2)
 var vecA = [15, 5]
 var vecB = [10, 8]
 
@@ -14,12 +14,20 @@ dot(vecA, vecB) === 190
 
 **/
 
-module.exports = dot
+function generator(dims) {
+  dims = +dims|0
 
-function dot(vec, other) {
-  var res = 0
-  for (var n = 0; n < vec.length; n++) {
-    res += vec[n] * other[n]
-  }
-  return res
+  var body = []
+
+  body.push('return function(vec, other) {')
+    var els = []
+    for (var i = 0; i < dims; i += 1) {
+      els.push('vec[' + i + ']*other[' + i + ']')
+    }
+    body.push('return ' + els.join(' + '))
+  body.push('}')
+
+  return Function(body.join('\n'))()
 }
+
+module.exports = generator

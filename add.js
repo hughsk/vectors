@@ -5,7 +5,7 @@
 Adds the `other` vector to `vec`:
 
 ``` javascript
-var add = require('vectors/add')
+var add = require('vectors/add')(2)
 var pos = [0, 0]
 var spd = [1, 1.5]
 
@@ -22,15 +22,13 @@ var res = add([1, 1, 1], 6)
 console.log(res) // [7, 7, 7]
 ```
 
+You can disable this by passing `scalars: false` to
+the generator function for faster results:
+
+``` javascript
+var add = require('vectors/add')(2, { scalars: false })
+```
+
 **/
 
-module.exports = add
-
-function add() {
-  for (var i = 1; i < arguments.length; i++) {
-    for (var n = 0; n < arguments[0].length; n++) {
-      arguments[0][n] += Array.isArray(arguments[i]) ? arguments[i][n] : arguments[i]
-    }
-  }
-  return arguments[0]
-}
+module.exports = require('./lib/operator')('add', '+')

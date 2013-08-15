@@ -5,7 +5,7 @@
 Divides the vector `vec` by a `other` value:
 
 ``` javascript
-var div = require('vectors/div')
+var div = require('vectors/div')(2)
 var spd = [5, 5]
 
 div(spd, 2) === [2.5, 2.5]
@@ -18,15 +18,13 @@ var res = div([6, 6, 6], [2, 2, 2])
 console.log(res) // [3, 3, 3]
 ```
 
+You can disable this by passing `vectors: false` to
+the generator function for faster results:
+
+``` javascript
+var sub = require('vectors/div')(2, { vectors: false })
+```
+
 **/
 
-module.exports = div
-
-function div() {
-  for (var i = 1; i < arguments.length; i++) {
-    for (var n = 0; n < arguments[0].length; n++) {
-      arguments[0][n] /= Array.isArray(arguments[i]) ? arguments[i][n] : arguments[i]
-    }
-  }
-  return arguments[0]
-}
+module.exports = require('./lib/operator')('div', '/')
