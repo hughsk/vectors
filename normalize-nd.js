@@ -1,6 +1,6 @@
 module.exports = normalize
 
-function normalize(vec, scalar) {
+function normalize(vec) {
   var mag = 0
   for (var n = 0; n < vec.length; n++) {
     mag += vec[n] * vec[n]
